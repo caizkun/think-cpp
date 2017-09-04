@@ -9,4 +9,4 @@ Most code examples were modified from the book [_Thinking in C++_](http://mindvi
 - Polymorphism
 - Generics
 - Exception
-- [Algorithm-DataStructures](./Algorithm-DataStructures/README.md)
+- [Algorithm-DataStructure](./Algorithm-DataStructure/README.md)
