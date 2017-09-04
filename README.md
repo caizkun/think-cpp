@@ -5,6 +5,7 @@ Most code examples were modified from the book [_Thinking in C++_](http://mindvi
 
 
 - Namespace
+- Overloading
 - Inheritance
 - Polymorphism
 - Generics
