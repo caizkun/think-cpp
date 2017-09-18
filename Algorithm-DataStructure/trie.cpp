@@ -1,5 +1,10 @@
 // summary for Trie (reTRIEve)
 
+// Advantages:
+//  utilize the common prefix to save space
+//  efficient search with prefix
+
+
 // Able to write a TrieNode class
 
 const int NUM_ALPHABET = 26;
@@ -18,11 +23,12 @@ public:
 class Trie {
 public:
     Trie() {
-        root = new Trie(false);
+        root = new TrieNode(false);
     }
     
     void insert(string word);
     bool search(string word);
+    bool startWith(string prefix);
     
 private:
     TrieNode *root;
@@ -52,7 +58,15 @@ bool Trie::search(string word) {
     return node->isComplete;
 }
 
-
+bool Trie::startWith(string prefix) {
+    TrieNode *node = root;
+    for (int i = 0; i < prefix.size(); ++i) {
+        char c = prefix[i];
+        if (node->children[c - 'a'] == NULL) return false;
+        node = node->children[c - 'a'];
+    }
+    return true;
+}
 
 
 
