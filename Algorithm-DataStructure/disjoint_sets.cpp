@@ -18,10 +18,18 @@ void make_set(vector<int> &parent) {
     return;
 }
 
+//int find_set(vector<int> &parent, int x) {
+//    if (x != parent[x]) {
+//        parent[x] = find_set(parent, parent[x]);    // with path compression
+//    }
+//    return parent[x];
+//}
+
 int find_set(vector<int> &parent, int x) {
-    if (x != parent[x]) {
-        parent[x] = find_set(parent, parent[x]);    // with path compression
+    if (parent[x] == x) {
+        return x;
     }
+    parent[x] = find_set(parent, parent[x]);    // with path compression
     return parent[x];
 }
 

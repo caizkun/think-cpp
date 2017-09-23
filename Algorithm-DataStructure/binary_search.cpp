@@ -12,16 +12,18 @@
 bool bisearch(vector<int> &data, int target, int begin, int end) {
     if (begin > end) return false;
     int l = begin, r = end;
-    while (l <= r) {
+    while (start + 1 < end) {
         int mid = l + (r - l) / 2;
         if (data[mid] == target) {
-            return true;
+            return mid;
         } else if (data[mid] < target) {
-            begin = mid + 1;
+            l = mid;
         } else {
-            end = mid - 1;
+            r = mid;
         }
     }
+    if (data[l] == target) return l;
+    if (data[r] == target) return r;
     return false;
 }
 
