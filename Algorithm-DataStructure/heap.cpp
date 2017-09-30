@@ -2,7 +2,7 @@
 #include<priority_queue>
 
 // Heap is essentially a almost complete binary tree but stored in an array.
-// For a max heap, any node of the tree is larger than its left subtree and right subtree.
+// For a max heap, any node of the tree is larger than its left subtree and  right subtree.
 
 // >>>>>>>>>>> Complexibility
 // constructor  (call make_heap)        O(n)

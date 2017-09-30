@@ -3,7 +3,7 @@
 // Useful for interval problems
 
 // General idea:
-// 1. split each interval to two points (pairs) with a flag: <start, 0> and <end, 1>
+// 1. split each interval to two points (pairs) with a flag: <start, 1> and <end, 0>
 // 2. sort all the points
 // 3. Loop over the points and dynamically update the overall result
 
@@ -23,7 +23,7 @@ public:
         // sort the points
         sort(points.begin(), points.end(), [] (pair<int, int> &a, pair<int, int> &b) {
             if (a.first == b.first) {
-                return (b.second < a.second);   // end first, then start
+                return (a.second < b.second);   // end first, then start
             }
             return (a.first < b.first);
         });
@@ -32,7 +32,7 @@ public:
         int res = 0;
         int curr = 0;
         for (pair<int, int> item : points) {
-            if (item.second == 1) {
+            if (item.second == 0) {
                 --curr;
             } else {
                 ++curr;
@@ -45,8 +45,8 @@ public:
 private:
     void splitIntervals(vector<Interval> &intervals, vector<pair<int, int> > &points) {
         for (Interval item : intervals) {
-            points.push_back(make_pair(item.start, 0));
-            points.push_back(make_pair(item.end, 1));
+            points.push_back(make_pair(item.start, 1));
+            points.push_back(make_pair(item.end, 0));
         }
         return;
     }
