@@ -6,9 +6,9 @@
 
 
 // 3 basic operations
-    make_set(x)
-    union(x, y)
-    find_set(x)
+//    make_set(x)
+//    union(x, y)
+//    find_set(x)
 
 
 void make_set(vector<int> &parent) {
@@ -42,4 +42,4 @@ void union(vector<int> &parent, int x, int y) {
 }
 
 
-// A very useful trick is that sometimes you need to assume a dummy node which aggregates nodes with a desired property
+// A very useful trick is that sometimes you need to assume a dummy node which aggregates all the nodes with a desired property
