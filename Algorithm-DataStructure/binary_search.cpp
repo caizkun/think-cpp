@@ -62,7 +62,7 @@ if (data[l] == taregt) return l;
 
 
 
-// >>> Search in a rotated sorted array <<< 
+// >>>>> Search in a rotated sorted array <<<<<
 //
 // (I) no duplicates
 // 1. find min/max  --> discuss whether data[mid] <= > data[r]
@@ -71,6 +71,7 @@ if (data[l] == taregt) return l;
 // (II) with duplicates
 // 1. find min/max  --> discuss whether data[mid] < > == data[r]; if ==, then --r;
 // 2. find target   --> if found, return; otherwise, based on data[mid] < > = data[r], discuss whether target lies in between; if ==, then --r;
+
 
 
 
