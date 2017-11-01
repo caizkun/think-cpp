@@ -4,18 +4,21 @@
 #include<unordered_map>
 #include<unordered_set>
 
-
 // map and set are ordered by their keys, while unordered_map and unordered_set do not.
 
-// Complexicity: map & set
+// Complexity: map & set (TreeMap & TreeSet)
+// Implemented as binary search tree, search O(logn)
+
+// Complexity: unordered_map & unordered_set (HashMap & HashSet)
+// Implement hash-tables, search O(1)
 
 
-
-
-
-// Complexity: unordered_map & unordered_set
-
-
+// >>> must be able to customize set/map comparator!!! <<<
+auto comp = [](int a,  int b) { // not reference
+    return (a > b);     // reverse order
+};
+set<int, decltype(comp)> myset(comp);
+map<int, int, decltype(comp)> mymap(comp);
 
 
 

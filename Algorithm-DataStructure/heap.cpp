@@ -17,7 +17,9 @@ template <class T, class Container = vector<T>, class Compare = less<typename Co
 priority_queue<int> max_heap;
 priority_queue<int> max_heap(data.begin(), data.end());  // O(n)
 
+
 // min heap
+// greater<int> needs header #include <functional>
 priority_queue<int, vector<int>, greater<int> > min_heap;
 
 
