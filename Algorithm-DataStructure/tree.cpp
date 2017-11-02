@@ -55,14 +55,14 @@ void inorder_traverse(TreeNode *root, vector<int> &vals) {
 void postorder_traverse(TreeNode *root, vector<int> &vals) {
     if (root == NULL) return;
     stack<TreeNode *> nodes;
-    TreeNode *prev = NULL;
+    TreeNode *prev = NULL;  // for later check
     while (root != NULL || !nodes.empty()) {
         if (root != NULL) {
-            nodes.push_back(root);
+            nodes.push(root);
             root = root->left;
         } else {
-            TreeNode *curr = nodes.top();                       // triky block!
-            if (curr->right != NULL && prev != curr->right) {
+            TreeNode *curr = nodes.top();   // needs a new pointer
+            if (curr->right != NULL && prev != curr->right) {   // check if processed
                 root = curr->right;
             } else {
                 vals.push_back(curr->val);  // or do something
