@@ -92,3 +92,17 @@ void level_traverse(TreeNode *root, vector<int> &vals) {
     }
     return;
 }
+
+
+// difference between traverse and divide & conquer
+// traverse:            taking notes while trasversing the tree
+// divide & conquer:    making decision based on the notes passed from subtrees
+
+
+
+
+
+
+
+
+

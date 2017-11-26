@@ -25,6 +25,8 @@ void make_set(vector<int> &parent) {
 //    return parent[x];
 //}
 
+
+// >>>>>>>>>> Path compression doesn't mean all the nodes in the same set point to the root! <<<<<<<<<<<<<
 int find_set(vector<int> &parent, int x) {
     if (parent[x] == x) {
         return x;
