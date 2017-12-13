@@ -1,4 +1,4 @@
-// summary for shortest path (reTRIEve)
+// summary for shortest path
 
 typedef pair<int, int> entry;
 
@@ -28,7 +28,7 @@ void Graph::addEdge(int fromNode, int toNode, int weight) {
 }
 
 
-// Dijkstra's algorithm to compute the
+// Dijkstra's algorithm to compute the shortest paths to other nodes from a source
 vector<int> Graph::dijkstra(int origin) {
     // initialize distance
     vector<int> dist(V, INT_MAX);
