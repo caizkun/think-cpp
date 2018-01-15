@@ -17,6 +17,10 @@ public:
     TrieNode(bool status=false) : isComplete(status) {
         children.resize(NUM_ALPHABET);
     }
+    
+    ~TrieNode() {
+        children.clear();
+    }
 };
 
 
@@ -24,6 +28,10 @@ class Trie {
 public:
     Trie() {
         root = new TrieNode(false);
+    }
+    
+    ~Trie() {
+        delete root;
     }
     
     void insert(string word);
