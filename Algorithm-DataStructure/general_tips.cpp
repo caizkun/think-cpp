@@ -32,9 +32,9 @@ data.resize(unique(data.begin(), data.end()) - data.begin());   // unique return
 // lexicography order --> sort the vector of string or char
 
 
-// find the min or max of a set which keeps changing ---> heap (C++ uses priority_queue)
-priority_queue<int> max_heap(data.begin(), data.end());   // priority_queue is a max heap by defalut
-priority_queue<int, vector<int> greater<int> > min_heap(data.begin(), data.end());    // change priority_queue to a min heap;
+// find the min or max of a set which keeps changing ---> heap (C++ uses priority_queue, which is a implementation of max-heap)
+priority_queue<int> max_heap(data.begin(), data.end());   // construct a heap from a array is O(n)
+priority_queue<int, vector<int>, greater<int> > min_heap(data.begin(), data.end());    // change priority_queue to a min heap;
 
 
 // type conversion/casting
@@ -56,10 +56,12 @@ vector<int> v(n);
 iota(v.begin(), v.end(), 0);    // 0 is the starting value
 
 
-// number base conversion
+
+// get all digits of a number
+// similar code can be used to do number base conversion
 vector<int> digits;
-for (int m = n; m != 0; m /= 10) {
-    digits.push_back(m % 10);
+for (int i = n; i != 0; i /= 10) {
+    digits.push_back(i % 10);
 }
 
 

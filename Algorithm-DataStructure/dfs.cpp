@@ -4,7 +4,7 @@
 // Common problems are subset, permutation, combination, k-sum, ...
 
 
-// Draw a tree when you consider DFS!!!
+// Draw a tree/network when you consider DFS!!!
 // 1. Horizontal: the nodes in a level tell you how to write recursion in your dfs helper function
 // 2. Vertical: a path starting from the root tell you how to write the stopping criterion
 
@@ -14,7 +14,7 @@
 // Or O(2^n)
 
 
-// If a problems asks for whether a method is feasible or the number of feasible solutions, usually dp is more efficient.
+// If a problems asks for whether a method is feasible or the number of feasible solutions, dynamic progamming (dp is usually a more efficient solution.
 // However, if it further asks for listing out all possible solutions, then dp usually cannot help and dfs is on demand!
 
 
@@ -139,28 +139,5 @@ public:
         return dp[n][k][target];
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

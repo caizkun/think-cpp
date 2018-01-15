@@ -1,6 +1,6 @@
 // summary for segment tree
 
-// A complele binary tree whose node stores the information within an interval
+// A complele binary tree whose node stores the information for an interval of an array data
 // Useful for finding extreme values within an interval
 
 class SegmentTreeNode {

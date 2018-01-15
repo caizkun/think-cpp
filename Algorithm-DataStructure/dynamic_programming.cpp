@@ -8,8 +8,9 @@
 
 
 // common meaning of dp
-dp[i] -> num of solution ended with index i (i must be in the solution)
-      -> num of solution until index i
-dp[i][j] -> num of solution from index i to index j (inclusive)
+dp[i] -> the num of solutions ended with index i (i must be in the solution)
+      -> the num of solutions for the first i elements
+
+dp[i][j] -> the num of solutions from index i to index j (inclusive)
 
 

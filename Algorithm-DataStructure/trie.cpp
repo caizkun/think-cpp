@@ -14,7 +14,7 @@ public:
     vector<TrieNode *> children;
     bool isComplete;
     
-    TrieNode(bool status) : isComplete(status) {
+    TrieNode(bool status=false) : isComplete(status) {
         children.resize(NUM_ALPHABET);
     }
 };
@@ -42,7 +42,7 @@ void Trie::insert(string word) {
         if (node->children[c - 'a'] == NULL) {
             node->children[c - 'a'] = new TrieNode(false);
         }
-        node = node->children[c  'a'];
+        node = node->children[c - 'a'];
     }
     node->isComplete = true;
 }

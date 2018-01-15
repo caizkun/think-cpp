@@ -93,6 +93,29 @@ void level_traverse(TreeNode *root, vector<int> &vals) {
     return;
 }
 
+// another form: process level by level
+void level_traverse(TreeNode *root, vector<int> &vals) {
+    if (root == NULL) return;
+    queue<TreeNode *> nodes;
+    nodes.push(root);
+    while (!nodes.empty()) {
+        int size = nodes.size();
+        for (int i = 0; i < size; ++i) {
+            root = nodes.front();
+            nodes.pop();
+            vals.push_back(root->val);
+            if (root->left != NULL) {
+                nodes.push(root->left);
+            }
+            if (root->right != NULL) {
+                nodes.push(root->right);
+            }
+        }
+    }
+    return;
+}
+
+
 
 // difference between traverse and divide & conquer
 // traverse:            taking notes while trasversing the tree

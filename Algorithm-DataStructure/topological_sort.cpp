@@ -15,7 +15,7 @@
 // (DFS) 2. dive deeper from any child node whose inward degree becomes zero afer remvoing the previous nodes
 
 
-// below is an example for Course Schedule II
+// Example: Course Schedule II
 class Solution {
 public:
     vector<int> findOrder(int numCourses, vector<pair<int, int>>& prerequisites) {

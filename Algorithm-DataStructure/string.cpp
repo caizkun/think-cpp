@@ -15,3 +15,4 @@ bool is_subsequence(string a, string b) {
 }
 
 // compare substring
+// KMP algorithm

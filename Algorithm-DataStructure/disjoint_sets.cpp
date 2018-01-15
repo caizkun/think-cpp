@@ -26,7 +26,7 @@ void make_set(vector<int> &parent) {
 //}
 
 
-// >>>>>>>>>> Path compression doesn't mean all the nodes in the same set point to the root! <<<<<<<<<<<<<
+// Path compression doesn't mean all the nodes in the same set directly point to the root!
 int find_set(vector<int> &parent, int x) {
     if (parent[x] == x) {
         return x;
@@ -36,12 +36,12 @@ int find_set(vector<int> &parent, int x) {
 }
 
 void union(vector<int> &parent, int x, int y) {
-    int root_x = find(parent, x);
-    int root_y = find(parent, y);
+    int root_x = find_set(parent, x);
+    int root_y = find_set(parent, y);
     if (root_x == root_y) return;
     parent[root_x] = root_y;        // no union by rank yet
     return;
 }
 
 
-// A very useful trick is that sometimes you need to assume a dummy node which aggregates all the nodes with a desired property
+// A very useful trick is that sometimes you need to assume a dummy node which "globally" aggregates all the nodes with a desired property

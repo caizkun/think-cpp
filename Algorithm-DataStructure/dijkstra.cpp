@@ -1,4 +1,5 @@
 // summary for shortest path
+// Dijkstra's algorithm: compute the shortest weighted paths to all the other nodes from a source
 
 typedef pair<int, int> entry;
 
@@ -31,7 +32,7 @@ void Graph::addEdge(int fromNode, int toNode, int weight) {
 // Dijkstra's algorithm to compute the shortest paths to other nodes from a source
 vector<int> Graph::dijkstra(int origin) {
     // initialize distance
-    vector<int> dist(V, INT_MAX);
+    vector<int> dist(nodes.size(), INT_MAX);
     dist[origin] = 0;
     
     // use a min_heap to maintain a connection list

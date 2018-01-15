@@ -18,13 +18,10 @@ bool compare(int &a, int &b) {
 }
 sort(data.begin(), data.end(), compare);
 
-// 2. more conveniently, use a lambda function
+// 2. use a lambda function
 sort(data.begin(), data.end(), [] (pair<int, int> &a, pair<int, int> &b) {
     return (a.second < b.second);     // sort by the second element of pairs
 });
-
-
-
 
 
 // >>> quicksort: O(nlogn) <<<
