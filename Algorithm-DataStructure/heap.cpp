@@ -26,7 +26,7 @@ priority_queue<int, vector<int>, greater<int> > min_heap;
 //>>>>>>>>>>>> Must know how to write a customized comparison method
 auto comp = [&nums1, &nums2] (pair<int, int> a, pair<int, int> b) {
     return nums1[a.first] + nums2[a.second] > nums1[b.first] + nums2[b.second];
-};
+};  // watch out this semicolon!
 priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(comp)> min_heap(comp);
 
 

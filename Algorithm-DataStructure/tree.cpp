@@ -74,6 +74,51 @@ void postorder_traverse(TreeNode *root, vector<int> &vals) {
     return;
 }
 
+// A general method for writing depth-first traversal
+class Guide {
+public:
+    int operation;
+    TreeNode *node;
+    
+    Guide(int operation, TreeNode *node) {
+        this->operation = operation;    // 0: visit, 1: print;
+        this->node = node;
+    }
+};
+
+void postorder_traverse(TreeNode *root, vector<int> &vals) {
+    stack<Guide> path;
+    path.push(Guide(0, root));
+    while (!path.empty()) {
+        Guide curr = path.top();
+        path.pop();
+        if (curr.node == nullptr) continue;
+        
+        if (curr.operation == 1) {
+            vals.push_back(curr.node->val);
+        } else {
+            // push guide in the reverse order
+            
+            // post-order
+            path.push(Guide(1, curr.node));
+            path.push(Guide(0, curr.node->right));
+            path.push(Guide(0, curr.node->left));
+            
+            // in-order
+            path.push(Guide(0, curr.node->right));
+            path.push(Guide(1, curr.node));
+            path.push(Guide(0, curr.node->left));
+            
+            // pre-order
+            path.push(Guide(0, curr.node->right));
+            path.push(Guide(0, curr.node->left));
+            path.push(Guide(1, curr.node));
+        }
+    }
+    return;
+}
+
+
 // 4. Breadth-First Traversal
 void level_traverse(TreeNode *root, vector<int> &vals) {
     if (root == NULL) return;

@@ -11,21 +11,21 @@ void quicksort(vector<int> &nums, int l, int r) {
 }
 
 
-// quickselect is the algorithm to find the k-th smallest / (n-k) largest number in an unsorted array of size n
+// quickselect is the algorithm to find the k-th smallest / (n+1-k) largest number in an unsorted array of size n
 // time complexity: O(n)
 int quickselect(vector<int> &nums, int l, int r, int k) {
     while (l < r) {
         int pos = partition(nums, l, r);
-        if (pos == k) {
+        if (pos + 1 == k) {
             break;
-        } else if (pos < k) {
+        } else if (pos + 1 < k) {
             l = pos + 1;
         } else {
             r = pos - 1;
         }
     }
     
-    return nums[k];
+    return nums[k - 1];
 }
 
 
