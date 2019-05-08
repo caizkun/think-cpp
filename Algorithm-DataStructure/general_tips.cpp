@@ -63,6 +63,13 @@ vector<int> digits;
 for (int i = n; i != 0; i /= 10) {
     digits.push_back(i % 10);
 }
+reverse(digits.begin(), digits.end());
 
+
+// convert from digits to a number
+int num = 0;
+for (int i = 0; i < digits.size(); ++i) {
+    num = 10*num + digits[i];
+}
 
 
