@@ -5,11 +5,7 @@ class TreeNode {
 public:
     int val;
     TreeNode *left, *right;
-    TreeNode(int val) {
-        this->val = val;
-        this->left = NULL;
-        this->right = NULL;
-    }
+    TreeNode(int val) : val(val), left(NULL), right(NULL) {}
 };
 
 //>>>>>>>>>>> Depth-First Traversal & Breadth(Level)-First Traversal
