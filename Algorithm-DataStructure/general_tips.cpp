@@ -73,3 +73,13 @@ for (int i = 0; i < digits.size(); ++i) {
 }
 
 
+
+// gcd (greatest common divisor)
+// 1. Call __gcd(a, b) which is a built-in function of C++
+// 2. Alternatively, write the Euclid algorithm
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    a %= b;
+    return gcd(b, a);
+}
+

@@ -38,6 +38,17 @@ for (int i = 0; i <= n; ++i) {
 }
 return false;
 
+
+// postSum
+vector<int> postSum(n+1, 0);
+for (int i = n-1; i >= 0; --i) {
+    postsum[i] = postsum[i+1] + nums[i];    // postSum[i]: i, ..., n-1
+}
+// for (int i = 1; i <= n; ++i) {
+//     postSum[i] = postSum[i-1] + data[n-i];  // postSum[i]: n-i, n-i+1, ..., n-1
+// } 
+
+
 // 4. DP
 // dp[i]: XXX of the first i elements
 // dp[i]: XXX ending in the i-th element
