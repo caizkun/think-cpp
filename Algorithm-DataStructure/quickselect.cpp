@@ -16,9 +16,9 @@ void quicksort(vector<int> &nums, int l, int r) {
 int quickselect(vector<int> &nums, int l, int r, int k) {
     while (l < r) {
         int pos = partition(nums, l, r);
-        if (pos + 1 == k) {
+        if (pos == k - 1) {
             break;
-        } else if (pos + 1 < k) {
+        } else if (pos < k - 1) {
             l = pos + 1;
         } else {
             r = pos - 1;

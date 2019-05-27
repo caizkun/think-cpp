@@ -22,8 +22,15 @@ priority_queue<int> max_heap(data.begin(), data.end());  // O(n)
 // greater<int> needs header #include <functional>
 priority_queue<int, vector<int>, greater<int> > min_heap;
 
+// min heap
+auto comp = [] (int a, int b) {
+    return a > b;
+};
+priority_queue<int, vector<int>, decltype(comp)> min_heap(comp);
+
 
 //>>>>>>>>>>>> Must know how to write a customized comparison method
+
 auto comp = [&nums1, &nums2] (pair<int, int> a, pair<int, int> b) {
     return nums1[a.first] + nums2[a.second] > nums1[b.first] + nums2[b.second];
 };  // watch out this semicolon!
