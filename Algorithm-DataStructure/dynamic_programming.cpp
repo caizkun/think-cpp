@@ -34,8 +34,23 @@ dp[x][y] -> num of ways to coordinate (x, y)
 
 e.g., minimum path sum, unique paths I, II
 
-2. Sequence-type DP
-dp[i] -> the num of solutions for the firt i elements. 
-// allocate n+1 elements, dp[0] is to be initialized, dp[n] is the answer
+
+2. Single-sequence-type DP
+dp[i] -> the num of solutions for the firt i elements
+// allocate n+1 elements, initialize dp[0] (and maybe dp[1]), dp[n] is the answer
+e.g. word break, palindrome partition II
+
+dp[i][j] -> the num of solutions between index i and index j (inclusive)
+// allocate n*n elements, initialize dp[i][i], dp[i][i+1], loop in terms of len and start index, 
+// dp[0][n-1] is the answer
+e.g. Longest Palindrome Substring
+
+
+3. Double-sequence-type DP
+dp[i][j] -> num of solutions for the first i elements of seq1 and the first j elements of seq2
+// allocate (n+1)*(m+1) elements, initialize dp[0][0], dp[i][0], dp[0][j], dp[n][m] is the answer
+e.g. edit distance, longest common subsequence
+
+
 
 
