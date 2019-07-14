@@ -12,7 +12,7 @@
 
 // (BFS) 2. use queue to sequentially process children nodes whose inward degree becomes zero after removing the previous nodes
 
-// (DFS) 2. dive deeper from any child node whose inward degree becomes zero afer remvoing the previous nodes
+// (DFS) 2. dive deeper from any child node whose inward degree becomes zero afer removing the previous nodes
 
 
 // Example: Course Schedule II

@@ -15,14 +15,14 @@ int r = 0;
 for (int l = 0; l < data.size(); ++l) {
     while (r < n) {
         if ( ) {    // if not satisfied
+            // update state at r
             ++r;
-            // update r status
         } else {
             break;
         }
     }
     
-    // update l status
+    // update state at l
 }
 
 // 3. preSum / preProd
