@@ -38,9 +38,7 @@ template <class Key,
           class KeyOfValue,
           class Compare,
           class Alloc = alloc>
-class rb_tree {
-    ...
-};
+class rb_tree;
 ```
 
 ### set & multiset
@@ -51,9 +49,7 @@ class rb_tree {
 template <class Key, 
           class Compare = less<int>, 
           class Alloc = alloc>
-class set {
-    ...
-};
+class set;
 ```
 ### map & multimap
 * sorted associative container with value = `pair<const key, data>` (multiset allows duplication)
@@ -64,9 +60,44 @@ template <class Key,
           class T,
           class Compare = less<Key>, 
           class Alloc = alloc>
-class map {
-    ...
-};
+class map;
+```
+
+### hashtable (not exposed by STL)
+* unordered associative container
+* hash_function(key) % bucket_size
+* resolving collision: separate chaining using linked list
+* rehash when num_elements exceeds bucket_size
+* used to implemented unordered_set, unordered_multiset, unordered_map, unordered_multimap
+```Cpp
+template <class Value,
+          class Key,
+          class HashFcn,
+          class ExtractKey,
+          class EqualKey,
+          class Alloc = alloc>
+class hashtable;
+```
+
+### unordered_set & unordered_multiset
+* unordered associative container with key = data 
+```Cpp
+template <typename T,
+          typename Hash = hash<T>,
+          typename EqPred = equal_to<T>,
+          typename Allocator = allocator<T> >
+class unordered_set;
+```
+
+### unordered_map & unordered_multimap
+* unordered associative container with value = pair<const key, data>
+```Cpp
+template <typename Key,
+          typename T,
+          typename Hash = hash<T>,
+          typename EqPred = equal_to<T>,
+          typename Allocator = allocator<pair<const Key, T> >
+class unordered_map;
 ```
 
 ## Adapters
