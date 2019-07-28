@@ -101,14 +101,19 @@ class unordered_map;
 ```
 
 ## Adapters
-### queue
+### container adapters
+#### queue
 * first in first out (no iterator)
 * implemented using deque (or list)
 
-### stack
+#### stack
 * first in last out (no iterator)
 * implemented using deque (or list, or vector)
 
+### iterator adapters
+
+
+### functor adapters
 
 
 ## Iterators
@@ -121,6 +126,58 @@ class iterator_traits {
     typedef T* pointer;
     typedef T& reference;
     typedef ptrdiff_t different_type;
+};
+```
+### iterator_category
+```Cpp
+struct input_iterator_tag {};
+struct output_iterator_tag {};
+struct forward_iterator_tag : public input_iterator_tag {};
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+struct random_access_iterator_tag : public bidirectional_iterator_tag {};
+```
+
+### Algorithms 
+Patterns (function templates):
+```Cpp
+template <typename Iterator, ...>
+return_type some_algorithm(Iterator first, Iterator last, ...) {}
+```
+```Cpp
+template <typename Iterator, typename Compare, ...>
+return_type some_algorithm(Iterator first, Iterator last, Compare comp) {}
+```
+
+### Functors
+Functors interact with algorithms and are typically used as comparator classes. In STL convention, functors inherit from either `unary_function` or `binary_function`.
+```Cpp
+template <class Arg, class Result>
+struct unary_function {
+    typedef Arg argument_type;
+    typedef Result result_type;
+};
+
+template <class Arg1, class Arg2, class Result>
+struct binary_function {
+    typedef Arg1 first_argument_type;
+    typedef Arg2 second_argument_type;
+    typedef Result result_type;
+};
+```
+Examples:
+```Cpp
+template <class T>
+bool less : public binary_function<T, T, bool> {
+    bool operator()(const T& x, const T& y) const {
+        return x < y;
+    }
+};
+
+template <class T>
+class plus : public binary_function<T, T, T> {
+    T operator()(const T& x, const T& y) const {
+        return x + y;
+    }
 };
 ```
 
