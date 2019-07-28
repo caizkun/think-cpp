@@ -11,7 +11,6 @@ Notes taken from [STL and Generic Programming by Jie Hou](https://boolan.com/cou
 ## Containers
 ### list
 * doubly-linked (and round) list
-* iterator_traits
 
 ### vector
 * continous memory and resizable  
@@ -145,7 +144,7 @@ return_type some_algorithm(Iterator first, Iterator last, ...) {}
 ```
 ```Cpp
 template <typename Iterator, typename Compare, ...>
-return_type some_algorithm(Iterator first, Iterator last, Compare comp) {}
+return_type some_algorithm(Iterator first, Iterator last, Compare comp, ...) {}
 ```
 
 ### Functors
@@ -167,16 +166,16 @@ struct binary_function {
 Examples:
 ```Cpp
 template <class T>
-bool less : public binary_function<T, T, bool> {
-    bool operator()(const T& x, const T& y) const {
-        return x < y;
+class plus : public binary_function<T, T, T> {
+    T operator()(const T& x, const T& y) const {
+        return x + y;
     }
 };
 
 template <class T>
-class plus : public binary_function<T, T, T> {
-    T operator()(const T& x, const T& y) const {
-        return x + y;
+bool less : public binary_function<T, T, bool> {
+    bool operator()(const T& x, const T& y) const {
+        return x < y;
     }
 };
 ```
