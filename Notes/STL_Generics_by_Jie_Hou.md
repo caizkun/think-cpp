@@ -180,4 +180,68 @@ bool less : public binary_function<T, T, bool> {
 };
 ```
 
+### Misc
+#### tuple (C++11, variadic template)
+```Cpp
+template <typename... Values>
+class tuple;
+
+tempalte<>
+class tuple<> {};
+
+template <typename Head, typename... Tail>
+class tuple<Head, Tail...> : private tuple<Tail...> {
+private:
+    typedef tuple<Tail...> inherited;
+public:
+    tuple() {}
+    tuple(Head v, Tail... vtail) : m_head(v), inherited(vtail...) {}
+    
+    typename Head::type head() { return m_head; }
+    inherited& tail() { return *this; }
+protected:
+    Head m_head;
+};
+```
+
+#### type traits (to serve Algorithms)
+[#include <type_traits>](http://www.cplusplus.com/reference/type_traits/)
+Simple example: `is_void`
+```Cpp
+template <typename _Tp>
+struct remove_const {
+    typedef _Tp type;
+};
+
+template <typename _Tp>
+struct remove_const<_Tp const> {
+    typedef _Tp type;
+};
+
+template <typename _Tp>
+struct remove_volatile {
+    typedef _Tp type;
+};
+
+template <typename _Tp>
+struct remove_volatile<_Tp volatile> {
+    typedef _Tp type;
+};
+
+template <typename _Tp>
+struct remove_cv {
+    typedef typename remove_const< typename remove_volatile<_Tp>::type >::type type;
+};
+
+template <typename>
+struct __is_void_helper : public false_type {};
+
+tempalte <typename>
+struct __is_void_helper<void> : public true_type {};
+
+// main
+template <typename _Tp>
+struct is_void : public __is_void_helper< typename remove_cv<_Tp>::type >::type
+```
+The implementation of more complicated type traits usually involves the power of the compiler under the *programming* hood.
 
