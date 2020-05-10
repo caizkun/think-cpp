@@ -9,7 +9,7 @@ public:
     
     void addNode(int node);
     void addEdge(int fromNode, int toNode, int weight);
-    int dijkstra(int origin);   // compute the shortest path starting from the origin node
+    vector<int> dijkstra(int origin);   // compute the shortest path starting from the origin node
 
 private:
     unordered_set<int> nodes;
